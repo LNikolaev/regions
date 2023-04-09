@@ -28,5 +28,6 @@ The file used for CRUD operation is in root directory: [db.json](db.json)
 # Code analysis:
 1. Tests are missing
 2. Comments are missing
-3. More code refactoring needed
-4. Extract Table component for `Edit/Info` popups as they have the same structure with the only difference everything is disabled in Info.
+3. Implementing routing will avoid the usage of the popups and problems with them.
+4. More code refactoring needed
+5. Extract Table component for `Edit/Info` popups as they have the same structure with the only difference everything is disabled in Info.
