@@ -1,0 +1,45 @@
+{
+  "regions": [
+    {
+      "id": "7fj0Ko",
+      "name": "sampleRegion",
+      "countries": [
+        "USA",
+        "Bulgaria",
+        "Mexico"
+      ],
+      "isActive": true
+    },
+    {
+      "name": "Europe",
+      "countries": [
+        "Slovenia",
+        "Slovakia",
+        "San Marino",
+        "Jersey"
+      ],
+      "isActive": false,
+      "id": "7fj0suH"
+    },
+    {
+      "name": "Asia & Pacific",
+      "countries": [
+        "Indonesia",
+        "Hong Kong",
+        "Guam"
+      ],
+      "isActive": true,
+      "id": "-783Sbd"
+    },
+    {
+      "name": "Africa",
+      "countries": [
+        "Western Sahara",
+        "Cape Verde",
+        "Congo"
+      ],
+      "isActive": false,
+      "id": "_mBfFNY"
+    }
+  ]
+}
