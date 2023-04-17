@@ -1,4 +1,15 @@
+import RegionService from "../../service/RegionService";
+
 const Table = (props) => {
+
+  const handleEdit = (region) => {
+    RegionService.getById(region.id)
+      .then(response => {
+        props.updateRegion(response.data)
+        props.toggleEdit();
+      })
+      .catch(error => console.log(error));
+  }
 
   return(
     <div className="table-content">
@@ -23,10 +34,7 @@ const Table = (props) => {
             >{region.name}</td>
             <td className="tableButtons">
               <button
-                onClick={() => {
-                  props.updateRegion(region)
-                  props.toggleEdit();
-                }}
+                onClick={() => handleEdit(region)}
                 className="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--edit">Edit
               </button>
               <button
