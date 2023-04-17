@@ -19,18 +19,6 @@ const EditRegionPopup = ({show, close, region, updateRegionState, refresh}) => {
     [region]
   );
 
-  // useEffect(() => {
-  //   fetchData()
-  // }, [region]);
-  //
-  // const fetchData = () => {
-  //   RegionService.getById(region.id)
-  //     .then(response => {
-  //       setCurrentRegion(response);
-  //     })
-  //     .catch(error => console.log(error));
-  // }
-
   const {control, handleSubmit, reset} = useForm();
 
   const {fields, append, remove, update} = useFieldArray({
