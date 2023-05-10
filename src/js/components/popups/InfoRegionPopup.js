@@ -1,5 +1,7 @@
 import {useFieldArray, useForm} from "react-hook-form";
 import {useEffect} from "react";
+import {Modal} from "react-bootstrap";
+
 
 const InfoRegionPopup = ({show, close, currentRegion}) => {
 
@@ -22,7 +24,10 @@ const InfoRegionPopup = ({show, close, currentRegion}) => {
   return (
     <>
       {
-        show ?
+        <Modal show={show}
+               id={"popupForm"}
+               onHide={close}
+        >
           <div
             className="modalContainer"
             onClick={() => close()}>
@@ -98,7 +103,7 @@ const InfoRegionPopup = ({show, close, currentRegion}) => {
               </main>
             </div>
           </div>
-        : null
+        </Modal>
       }
     </>
   );

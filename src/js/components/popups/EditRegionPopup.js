@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useFieldArray, useForm} from "react-hook-form";
 import RegionService from "../../../service/RegionService";
+import {Modal} from "react-bootstrap";
 
 const EditRegionPopup = ({show, close, region, updateRegionState, refresh}) => {
   const initialRegionState = {
@@ -80,6 +81,14 @@ const EditRegionPopup = ({show, close, region, updateRegionState, refresh}) => {
     }
   };
 
+  const handleCountryRemove = (index) => {
+    remove(index);
+    let countries = currentRegion.countries;
+    let newArray = countries ? [...countries] : [];
+    newArray.splice(index,index);
+    setCurrentRegion({...currentRegion, countries: newArray});
+  };
+
   const clear = () => {
     reset();
     close();
@@ -90,9 +99,11 @@ const EditRegionPopup = ({show, close, region, updateRegionState, refresh}) => {
     <>
       {
         show ?
+        <Modal show={show}
+               onHide={close}
+        >
           <div
-            className="modalContainer"
-            onClick={() => close()}>
+            className="modalContainer">
             <div className="modal" onClick={(e) => e.stopPropagation()}>
               <header className="modal_header">
                 <h2 className="modal_header-title">Edit</h2>
@@ -138,7 +149,7 @@ const EditRegionPopup = ({show, close, region, updateRegionState, refresh}) => {
                         />
                           {index !== 0 && (
                             <button className="o-buttons o-buttons--secondary" type="button"
-                                    onClick={() => remove(index)}>Remove</button>
+                                    onClick={() => handleCountryRemove(index)}>Remove</button>
                           )}
                           <span role="alert" className="o-forms-input__error">Please fill out this field</span>
                       </span>
@@ -167,7 +178,7 @@ const EditRegionPopup = ({show, close, region, updateRegionState, refresh}) => {
                       type="submit"
                       className="o-buttons o-buttons--primary o-buttons-icon o-buttons-icon--arrow-right o-buttons--big">Submit
                     </button>
-                    <button id="cancelButton" className="o-buttons o-buttons--secondary o-buttons--big"
+                    <button type="button" id="cancelButton" className="o-buttons o-buttons--secondary o-buttons--big"
                             onClick={clear}>Cancel
                     </button>
                   </div>
@@ -175,7 +186,7 @@ const EditRegionPopup = ({show, close, region, updateRegionState, refresh}) => {
               </main>
             </div>
           </div>
-          : null
+        </Modal> : null
       }
     </>
   );

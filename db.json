@@ -22,14 +22,14 @@
       "id": "7fj0suH"
     },
     {
+      "id": "-783Sbd",
       "name": "Asia & Pacific",
       "countries": [
         "Indonesia",
         "Hong Kong",
-        "Guam"
+        "Guama"
       ],
-      "isActive": true,
-      "id": "-783Sbd"
+      "isActive": true
     },
     {
       "name": "Africa",

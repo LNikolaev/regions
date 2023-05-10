@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import RegionService from "../../../service/RegionService";
 import Form from "../Form";
+import {Modal} from "react-bootstrap";
 
 const CreateRegionPopup = ({show, close, updateRegionState, refresh}) => {
   const initialRegionState = {
@@ -50,10 +51,12 @@ const CreateRegionPopup = ({show, close, updateRegionState, refresh}) => {
   return (
     <>
       {
-        show ?
+        <Modal show={show}
+               id={"popupForm"}
+               onHide={close}
+        >
           <div
-            className="modalContainer"
-            onClick={() => close()}>
+            className="modalContainer">
             <div className="modal" onClick={(e) => e.stopPropagation()}>
               <header className="modal_header">
                 <h2 className="modal_header-title">Creat New</h2>
@@ -66,7 +69,7 @@ const CreateRegionPopup = ({show, close, updateRegionState, refresh}) => {
               </main>
             </div>
           </div>
-        : null
+        </Modal>
       }
     </>
   );
